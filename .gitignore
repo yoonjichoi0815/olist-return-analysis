@@ -205,3 +205,15 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# macOS
+.DS_Store
+
+# Data (do not upload raw/processed datasets)
+data/
+*.csv
+
+# Models / artifacts
+models/
+*.pkl
+*.joblib

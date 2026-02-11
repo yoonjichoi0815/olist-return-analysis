@@ -1,4 +1,4 @@
-# Brazilian E-Commerce (Olist) Data Analysis
+# Customer Return Analysis using Olist E-Commerce Dataset
 
 ## Project Overview
 This project analyzes product return behavior in Brazilian e-commerce data (from Olist) to identify key factors associated with product returns. It explores the relationship between customer review scores and return status, applies machine learning models to predict returns, and leverages SHAP for interpretability. Additionally, NLP techniques are used to analyze customer review texts.
@@ -28,6 +28,7 @@ This project analyzes product return behavior in Brazilian e-commerce data (from
   - Logistic Regression
   - Random Forest
   - XGBoost
+  - SMOTE for class imbalance handling  
 
 ## Key Findings
 - A weak negative correlation was found between review score and return status (r = -0.12)
