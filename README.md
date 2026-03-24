@@ -60,7 +60,7 @@ This project analyzes product return behavior in Brazilian e-commerce data (from
 - Streamlit for model explanation interface
 - NLTK, TextBlob for NLP analysis
 
-## 📂 Project Files
+## Project Files
 - `olist_return_analysis.ipynb`: Main notebook for structured data analysis, hypothesis testing, and modeling.
 - `review_nlp_analysis.ipynb`: NLP analysis of customer review texts (translation, sentiment analysis, etc.).
 - `app.py`: Streamlit-based interactive SHAP visualization for model interpretation.
