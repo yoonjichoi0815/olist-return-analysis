@@ -209,11 +209,7 @@ __marimo__/
 # macOS
 .DS_Store
 
-# Data (do not upload raw/processed datasets)
-data/
-*.csv
-
-# Models / artifacts
-models/
-*.pkl
-*.joblib
+# Data (do not upload raw datasets)
+data/raw/
+__pycache__/
+.ipynb_checkpoints/models/model.pkl

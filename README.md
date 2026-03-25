@@ -3,6 +3,13 @@
 ## Project Overview
 This project analyzes product return behavior in Brazilian e-commerce data (from Olist) to identify key factors associated with product returns. It explores the relationship between customer review scores and return status, applies machine learning models to predict returns, and leverages SHAP for interpretability. Additionally, NLP techniques are used to analyze customer review texts.
 
+## Features
+- End-to-end data pipeline (EDA → modeling → deployment)
+- Streamlit app for prediction
+- SHAP explainability:
+  - Global feature importance
+  - Local prediction explanation
+
 ## Project Goals
 1. Analyze the relationship between customer review scores and return rates.
 2. Identify product categories with higher return tendencies.
