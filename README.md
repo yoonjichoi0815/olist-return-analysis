@@ -23,24 +23,24 @@ Goal: Understand why customers return products and build a predictive model with
   - Local prediction explanation
 
 ## Methodology
-1. Data Processing
+1. **Data Processing**
 - Merged multiple relational tables into a unified dataset
 - Engineered features:
   - delivery_late
   - total_price
   - review_score
 
-2. Exploratory Data Analysis (EDA)
+2. **Exploratory Data Analysis (EDA)**
 - Descriptive statistics
 - visualizations
 - correlation analysis
 
-3. Statistical Testing
+3. **Statistical Testing**
   - T-test between low and high score groups
   - ANOVA across product categories
   - Chi-square test of independence
 
-4. Predictive Modeling
+4. **Predictive Modeling**
 - Baseline Modeling:
   - Simple & Multiple Linear Regression (e.g., using `review_score`, `delivery_late`, `total_price`)
 - Modeling:
@@ -49,7 +49,7 @@ Goal: Understand why customers return products and build a predictive model with
   - XGBoost
   - SMOTE for class imbalance handling  
 
-5. NLP Analysis
+5. **NLP Analysis**
 - Translated Portuguese reviews → English
 - TF-IDF vectorization
 - Combined: structured features + text features
@@ -100,29 +100,6 @@ Goal: Understand why customers return products and build a predictive model with
 - Explainability: SHAP
 - Visualization: Seaborn, Matplotlib
 - Deployment: Streamlit
-
-## Project Structure
-olist-return-analysis/
-│
-├── notebooks/
-│   ├── 01_data_preprocessing.ipynb
-│   ├── 02_eda.ipynb
-│   ├── 03_stat_tests.ipynb
-│   ├── 04_modeling.ipynb
-│   └── 05_review_nlp_analysis.ipynb
-│
-├── app/
-│   └── app.py
-│
-├── data/
-│   ├── processed/
-│   └── raw/ (ignored)
-│
-├── models/
-│   └── model.pkl
-│
-├── README.md
-└── requirements.txt
 
 ## Dataset Source
 [Kaggle - Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
