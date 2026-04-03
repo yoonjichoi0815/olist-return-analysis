@@ -1,76 +1,128 @@
-# Customer Return Analysis using Olist E-Commerce Dataset
+# Customer Return Prediction & Review Analysis (Olist Dataset)
 
 ## Project Overview
 This project analyzes product return behavior in Brazilian e-commerce data (from Olist) to identify key factors associated with product returns. It explores the relationship between customer review scores and return status, applies machine learning models to predict returns, and leverages SHAP for interpretability. Additionally, NLP techniques are used to analyze customer review texts.
 
-## Features
-- End-to-end data pipeline (EDA → modeling → deployment)
-- Streamlit app for prediction
-- SHAP explainability:
+## Project Overview
+This project investigates product return behavior in e-commerce using the Brazilian Olist dataset.
+
+It combines:
+- Structured data modeling (price, delivery, review score)
+- Text analysis (NLP) on customer reviews
+- Explainable AI (SHAP) for interpretation
+
+Goal: Understand why customers return products and build a predictive model with interpretable insights.
+
+## Key Contributions
+- Built an end-to-end data pipeline (EDA → statistical testing → ML → NLP → deployment)
+- Handled class imbalance (rare returns) using SMOTE
+- Integrated text features (TF-IDF) with structured data
+- Applied interpretable ML (SHAP + coefficient analysis)
+- Deployed results via Streamlit dashboard:
   - Global feature importance
   - Local prediction explanation
 
-## Project Goals
-1. Analyze the relationship between customer review scores and return rates.
-2. Identify product categories with higher return tendencies.
-3. Develop machine learning models to predict product returns.
-4. Interpret model outputs using SHAP to identify key features.
-5. Explore customer sentiments through NLP on review text.
-
-## Key Questions
-1. Are lower review scores associated with higher return rates?
-2. Do certain product categories have higher return rates?
-3. Can return status be predicted based on review scores, delivery information, and payment details?
-
 ## Methodology
-- **Data Preprocessing**: Merging datasets to create a unified analysis table
-- **Exploratory Data Analysis (EDA)**: Descriptive statistics, visualizations, correlation analysis
-- **Statistical Testing**:
+1. Data Processing
+- Merged multiple relational tables into a unified dataset
+- Engineered features:
+  - delivery_late
+  - total_price
+  - review_score
+
+2. Exploratory Data Analysis (EDA)
+- Descriptive statistics
+- visualizations
+- correlation analysis
+
+3. Statistical Testing
   - T-test between low and high score groups
   - ANOVA across product categories
   - Chi-square test of independence
-- **Baseline Modeling**:
+
+4. Predictive Modeling
+- Baseline Modeling:
   - Simple & Multiple Linear Regression (e.g., using `review_score`, `delivery_late`, `total_price`)
-- **Modeling**:
+- Modeling:
   - Logistic Regression
   - Random Forest
   - XGBoost
   - SMOTE for class imbalance handling  
 
+5. NLP Analysis
+- Translated Portuguese reviews → English
+- TF-IDF vectorization
+- Combined: structured features + text features
+- Extracted:
+  - Top words in returned vs non-returned items
+  - Negative word impact on return rate
+  - Model-based word importance
+
 ## Key Findings
 - A weak negative correlation was found between review score and return status (r = -0.12)
 - T-tests and regression confirmed a significant difference in return rates between low and high review scores
 - Chi-square tests revealed that product category is significantly related to return rates
+- Words like "delay", "bad", "terrible" strongly increase return probability
+- Positive sentiment words ("good", "excellent") strongly correlate with non-returns
+- Text features significantly improve predictive performance
 
 ## Model Performance Summary (After SMOTE)
 - Logistic model:
-  - **Accuracy**: 88%
-  - **Recall (for returns)**: 79%
-  - **Precision**: 3%
-  - **F1-score**: 6%
+  - Accuracy: 88%
+  - Recall (for returns): 79%
+  - Precision: 3%
+  - F1-score: 6%
 - Random Forest model:
-  - **Accuracy**: 95%
-  - **Recall (for returns)**: 57%
-  - **Precision**: 6%
-  - **F1-score**: 10%
+  - Accuracy: 95%
+  - Recall (for returns): 57%
+  - Precision: 6%
+  - F1-score: 10%
 - XGBoost model:
-  - **Accuracy**: 88%
-  - **Recall (for returns)**: 76%
-  - **Precision**: 3%
-  - **F1-score**: 6%
+  - Accuracy: 88%
+  - Recall (for returns): 76%
+  - Precision: 3%
+  - F1-score: 6%
+
+## NLP Model (Structured + Text) Performance
+- Logistic Regression (interpretable model):
+  - Recall (returns): 0.91
+  - F1-score: 0.71
+  - PR-AUC: 0.70
 
 - Among all models, **Random Forest** showed the best trade-off between recall and precision, achieving the highest **F1-score** for identifying returned products.
 - While Logistic Regression and XGBoost achieved higher recall, they had significantly lower precision.
+- NLP model shows significant improvement after adding text features.
 
-## Tools & Libraries
-- Python (Pandas, NumPy, Seaborn, Scikit-learn, Statsmodels, imbalanced-learn, XGBoost, SHAP)
-- Streamlit for model explanation interface
-- NLTK, TextBlob for NLP analysis
+## Tech Stack
+- Python (Pandas, NumPy, Scikit-learn, XGBoost)
+- NLP: TF-IDF, text preprocessing
+- Imbalanced Learning: SMOTE
+- Explainability: SHAP
+- Visualization: Seaborn, Matplotlib
+- Deployment: Streamlit
 
-## Project Files
-- `olist_return_analysis.ipynb`: Main notebook for structured data analysis, hypothesis testing, and modeling.
-- `review_nlp_analysis.ipynb`: NLP analysis of customer review texts (translation, sentiment analysis, etc.).
-- `app.py`: Streamlit-based interactive SHAP visualization for model interpretation.
+## Project Structure
+olist-return-analysis/
+│
+├── notebooks/
+│   ├── 01_data_preprocessing.ipynb
+│   ├── 02_eda.ipynb
+│   ├── 03_stat_tests.ipynb
+│   ├── 04_modeling.ipynb
+│   └── 05_review_nlp_analysis.ipynb
+│
+├── app/
+│   └── app.py
+│
+├── data/
+│   ├── processed/
+│   └── raw/ (ignored)
+│
+├── models/
+│   └── model.pkl
+│
+├── README.md
+└── requirements.txt
 
 ## Dataset Source
 [Kaggle - Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
